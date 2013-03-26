@@ -1,0 +1,39 @@
+html {
+    font-family: Arial;
+    font-size: 0.8em;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+#global {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 620px;
+}
+
+input, textarea, select {
+    outline : none;
+}
+
+input#nom_tache, input#duree_tache {
+    background-color: white;
+    border: 1px solid #abadb3;
+    color: black;
+    padding-left: 2px;
+}
+
+input#nom_tache {
+    width: 200px;
+}
+
+#liste_projets {
+    width: 200px;
+}
+
+#liste_taches {
+    width: 250px;
+}
