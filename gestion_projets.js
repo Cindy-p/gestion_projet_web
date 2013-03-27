@@ -1,4 +1,4 @@
-function change_projet(liste) {
+/*function change_projet(liste) {
     var numProj = liste.options[liste.selectedIndex].value; // on récupère la valeur du projet sélectionné dans la liste
     var req = null;
     document.getElementById('liste_taches').length = 0;
@@ -19,7 +19,7 @@ function change_projet(liste) {
     req.open("GET", url, true);
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     req.send(null);
-}
+}*/
 
 function affiche_les_taches(req) {
     var docRecu = req.responseXML; // texte qu'il va falloir parcourir en recherchant les données balisées. autrement responseText qui peut être affiché avec alert ou attribué à un constituant de la page (division ou zone de texte) en affectant innerhttp
@@ -41,7 +41,6 @@ function affiche_les_taches(req) {
     document.getElementById('ajouter_tache').disabled = false;
     document.getElementById('modifier_tache').disabled = true;
 }
-
 
 function change_tache(liste) {
     var numTache = liste.options[liste.selectedIndex].value; // on récupère la valeur du projet sélectionné dans la liste
@@ -77,6 +76,55 @@ function affiche_nom_duree(req) {
     document.getElementById('duree_tache').value = valeurDepuisXml(tache, 'duree');
     document.getElementById('ajouter_tache').disabled = true;
     document.getElementById('modifier_tache').disabled = false;
+}
+
+function change_projet(liste) {
+    var numProjet = liste.options[liste.selectedIndex].value;
+    var req = null;
+    document.getElementById('nom_projet').value = '';
+    document.getElementById('description_projet').value = '';
+    
+    req = requete_serveur();
+    var url = "infos_projet.php?numero=" + numProjet;
+    
+    if (req != null) {
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) {
+                if (req.status == 200) {
+                    affiche_infos_projet(req);
+                }
+            }
+        }
+    }
+    req.open("GET", url, true);
+    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    req.send(null);
+}
+
+function affiche_infos_projet(req) {
+    var docRecu = req.responseXML;
+    if (docRecu == null)
+        return;
+    
+    var projet = docRecu.getElementsByTagName('projet')[0];
+    var numProjet = valeurDepuisXml(projet, 'numero');
+    
+    if (numProjet != 0) {
+        document.getElementById('infos_projet').style.visibility = "visible";
+        document.getElementById('nom_projet').disabled = true;
+        document.getElementById('description_projet').disabled = true;
+        document.getElementById('nom_projet').value = texteDepuisXml(projet, 'nom');
+        document.getElementById('description_projet').value = texteDepuisXml(projet, 'description');
+    }
+    else {
+        document.getElementById('infos_projet').style.visibility = "visible";
+        document.getElementById('nom_projet').disabled = false;
+        document.getElementById('description_projet').disabled = false;
+    }
+}
+
+function cache_infos_projet() {
+    document.getElementById('infos_projet').style.visibility = "hidden";
 }
 
 function passage_lien_edite_tache() {

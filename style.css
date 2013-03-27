@@ -19,7 +19,7 @@ input, textarea, select {
     outline : none;
 }
 
-input#nom_tache, input#duree_tache, input#nom_projet, input#description_projet {
+input#nom_tache, input#duree_tache, input#nom_projet, textarea#description_projet {
     background-color: white;
     border: 1px solid #abadb3;
     color: black;

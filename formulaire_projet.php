@@ -19,21 +19,21 @@
                     <tr>
                         <td>
                             <b><label for="liste_projets">Liste des projets</label></b><br>
-                            <select size="8" id="liste_projets" onChange="" style="height: 250px;">
+                            <select size="8" id="liste_projets" onChange="change_projet(this);" style="height: 250px;">
                                 <option value="0">Nouveau...</option>
                                 <?php affiche_liste_projets(); ?>
                             </select>
-                            <br/>
-                            <input type="button" value="Cacher" onClick="document.getElementById('infos_projet').style.visibility = 'hidden';"/>
-                            <input type="button" value="Afficher" onClick="document.getElementById('infos_projet').style.visibility = 'visible';"/>
                         </td>
                         <td>
                             <div id="infos_projet">
+                                <script>
+                                    cache_infos_projet();
+                                </script>
                                 <b><label for="nom_projet">Nom</label></b><br>
                                 <input type="text" id="nom_projet" style="width: 200px;" disabled="disabled"/>
                                 <br><br>
                                 <b><label for="description_projet">Description</label></b><br>
-                                <input type="text" id="description_projet" style="width: 200px; height: 150px;" disabled="disabled"/>
+                                <textarea id="description_projet" style="width: 400px; height: 150px;" disabled="disabled"></textarea>
                                 <br><br>
                                 <input type="button" value="Modifier"/>
                                 <input type="button" value="Sélectionner"/>
