@@ -37,3 +37,7 @@ input#nom_tache {
 #liste_taches {
     width: 250px;
 }
+
+textarea {
+    font-family: Arial;
+}

@@ -11,7 +11,11 @@ function affiche_liste_projets() {
     }
 }
 
-function recuperer_nom_projet($numero_projet) {
+function affiche_infos_projet($numeroProjet, $champNom, $champDescription) {
+    
+}
+
+/*function recuperer_nom_projet($numero_projet) {
     $req = 'select projet_nom from projet where projet_numero =' . $numero_projet;
     $result = mysql_query($req);
     
@@ -31,7 +35,7 @@ function recuperer_description_projet($numero_projet) {
     $description = mysql_fetch_assoc($result);
     
     return $description;
-}
+}*/
 
 function verification_erreur_requete($req, $result) {
     if (!$result) {

@@ -29,14 +29,15 @@
                                 <script>
                                     cache_infos_projet();
                                 </script>
+                                
                                 <b><label for="nom_projet">Nom</label></b><br>
-                                <input type="text" id="nom_projet" style="width: 200px;" disabled="disabled"/>
+                                <input type="text" id="nom_projet" style="width: 200px;"/>
                                 <br><br>
                                 <b><label for="description_projet">Description</label></b><br>
-                                <textarea id="description_projet" style="width: 400px; height: 150px;" disabled="disabled"></textarea>
+                                <textarea id="description_projet" style="width: 400px; height: 150px;"></textarea>
                                 <br><br>
-                                <input type="button" value="Modifier"/>
-                                <input type="button" value="Sélectionner"/>
+                                <input type="button" id="modifier_projet" value="Modifier" onClick="passage_lien_edite_projet();"/>
+                                <input type="button" id="selectionner_projet" value="Sélectionner"/>
                             </div>
                         </td>
                         <!-- <td>

@@ -85,7 +85,10 @@ function change_projet(liste) {
     document.getElementById('description_projet').value = '';
     
     req = requete_serveur();
-    var url = "infos_projet.php?numero=" + numProjet;
+    
+    if (numProjet != 0) {
+        var url = "infos_projet.php?numero=" + numProjet;
+    }
     
     if (req != null) {
         req.onreadystatechange = function() {
@@ -107,24 +110,21 @@ function affiche_infos_projet(req) {
         return;
     
     var projet = docRecu.getElementsByTagName('projet')[0];
-    var numProjet = valeurDepuisXml(projet, 'numero');
     
-    if (numProjet != 0) {
-        document.getElementById('infos_projet').style.visibility = "visible";
-        document.getElementById('nom_projet').disabled = true;
-        document.getElementById('description_projet').disabled = true;
-        document.getElementById('nom_projet').value = texteDepuisXml(projet, 'nom');
-        document.getElementById('description_projet').value = texteDepuisXml(projet, 'description');
-    }
-    else {
-        document.getElementById('infos_projet').style.visibility = "visible";
-        document.getElementById('nom_projet').disabled = false;
-        document.getElementById('description_projet').disabled = false;
-    }
+    document.getElementById('infos_projet').style.visibility = "visible";
+    document.getElementById('nom_projet').disabled = true;
+    document.getElementById('description_projet').disabled = true;
+    document.getElementById('nom_projet').value = texteDepuisXml(projet, 'nom');
+    document.getElementById('description_projet').value = texteDepuisXml(projet, 'description');
 }
 
 function cache_infos_projet() {
     document.getElementById('infos_projet').style.visibility = "hidden";
+}
+
+function passage_lien_edite_projet() {
+    var numProjet = document.getElementById('liste_projets').options[document.getElementById('liste_projets').selectedIndex].value;
+    self.location.href = 'edite_projet.php?numero=' + numProjet;
 }
 
 function passage_lien_edite_tache() {
