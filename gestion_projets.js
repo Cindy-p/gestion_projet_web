@@ -21,7 +21,7 @@
     req.send(null);
 }*/
 
-function affiche_les_taches(req) {
+/*function affiche_les_taches(req) {
     var docRecu = req.responseXML; // texte qu'il va falloir parcourir en recherchant les données balisées. autrement responseText qui peut être affiché avec alert ou attribué à un constituant de la page (division ou zone de texte) en affectant innerhttp
     if (docRecu == null)
         return;
@@ -76,7 +76,7 @@ function affiche_nom_duree(req) {
     document.getElementById('duree_tache').value = valeurDepuisXml(tache, 'duree');
     document.getElementById('ajouter_tache').disabled = true;
     document.getElementById('modifier_tache').disabled = false;
-}
+}*/
 
 function change_projet(liste) {
     var numProjet = liste.options[liste.selectedIndex].value;
@@ -125,9 +125,4 @@ function cache_infos_projet() {
 function passage_lien_edite_projet() {
     var numProjet = document.getElementById('liste_projets').options[document.getElementById('liste_projets').selectedIndex].value;
     self.location.href = 'edite_projet.php?numero=' + numProjet;
-}
-
-function passage_lien_edite_tache() {
-    var liste_taches = document.getElementById("liste_taches");
-    self.location.href = 'edite_tache_v2.php?numeroTache=' + liste_taches.options[liste_taches.selectedIndex].value;
 }

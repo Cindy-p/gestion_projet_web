@@ -19,7 +19,8 @@ input, textarea, select {
     outline : none;
 }
 
-input#nom_tache, input#duree_tache, input#nom_projet, textarea#description_projet {
+input#nom_tache, input#duree_tache, input#nom_projet, textarea#description_projet,
+input#nom_personne {
     background-color: white;
     border: 1px solid #abadb3;
     color: black;
@@ -40,4 +41,11 @@ input#nom_tache {
 
 textarea {
     font-family: Arial;
+}
+
+#liste_deroulante_checkbox {
+    height:100px;
+    width:200px;
+    overflow: auto;
+    border: 1px solid #abadb3;
 }

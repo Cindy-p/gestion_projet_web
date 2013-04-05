@@ -101,7 +101,7 @@
                     </tr>
                 </table>
                 <input type="button" value="Valider" onClick="enregistrer(this.form)"/>
-                <input type="button" value="Retour" onClick="self.location.href='formulaire.php'"/>
+                <input type="button" value="Retour" onClick="self.location.href='formulaire_tache.php'"/>
             </form>
         </div>
     </body>
